@@ -111,6 +111,8 @@ print(geodata.head())
 
 # YOUR CODE HERE 9
 # Read population grid data for 2018 into a variable `pop`. 
+read_pop = r'data/500m_mesh_suikei_2018_shape_13/500m_mesh_2018_13.shp'
+pop = gpd.read_file(read_pop)
 
 #TEST CODE
 # Check your input data
@@ -123,9 +125,12 @@ print(pop.head(3))
 
 # Create a spatial join between grid layer and buffer layer. 
 # YOUR CDOE HERE 10 for spatial join
+pop.crs = CRS.from_epsg(32634).to_wkt()
 
 
 # YOUR CODE HERE 11 to report how many people live within 1.5 km distance from each shopping center
+join = gpd.sjoin(geodata, pop, how = 'inner', op = 'intersects')
+grouped = join.groupby(['name'])
 
 # **Reflections:**
 #     

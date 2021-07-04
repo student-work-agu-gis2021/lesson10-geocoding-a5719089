@@ -79,6 +79,8 @@ print("Geocoded output is stored in this file:", out_fp)
 geodata['buffer']=None
 
 # YOUR CODE HERE 7 to set buffer column
+geodata.crs = CRS.from_epsg(32634).to_wkt()
+geodata['buffer'] =geodata.buffer(1500)
 
 #TEST CODE
 print(geodata.head())

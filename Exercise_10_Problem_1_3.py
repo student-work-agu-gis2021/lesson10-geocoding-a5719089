@@ -63,6 +63,7 @@ print(geodata.head())
 # Define output filepath
 out_fp = None
 # YOUR CODE HERE 5 to save the output
+outfp = r"shopping_centers.shp"
 
 # TEST CODE
 # Print info about output file
